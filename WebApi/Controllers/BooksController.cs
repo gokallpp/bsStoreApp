@@ -31,8 +31,6 @@ namespace WebApi.Controllers
             }
         }
 
-
-
         [HttpGet("{id:int}")]
         public IActionResult GetOneBooks([FromRoute(Name = "id")] int id)
         {
@@ -56,7 +54,6 @@ namespace WebApi.Controllers
             }
         }
 
-
         [HttpPost]
         public IActionResult CreateOneBook([FromBody] Book book)// Kitap oluşturma işlemi için HTTP POST isteği
         {
@@ -77,7 +74,6 @@ namespace WebApi.Controllers
             }
 
         }
-
 
 
         [HttpPut("{id:int}")]
@@ -164,9 +160,6 @@ namespace WebApi.Controllers
                 throw new Exception(ex.Message);
             }
 
-
-
-            
 
         }
     }
