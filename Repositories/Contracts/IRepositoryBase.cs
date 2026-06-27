@@ -13,7 +13,7 @@ namespace Repositories.Contracts
         IQueryable<T> FindAll(bool trackChanges); // T türündeki tüm varlıklarını geri getirme yöntemi; değişiklikleri izleme seçeneği de mevcuttur.
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges); // Belirli bir koşula uyan varlıkları geri getirme yöntemi; değişiklikleri izleme seçeneği de mevcuttur.
 
-        void cREATE(T entity);
+        void Create(T entity);
         void Update(T entity);
         void Delete(T entity);
     }
