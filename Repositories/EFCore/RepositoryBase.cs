@@ -19,25 +19,26 @@ namespace Repositories.EFCore
             _context = context;
         }
 
-        public void Create(T entity) => _context.Set<T>().Add(entity);
+        public void Create(T entity) => _context.Set<T>().Add(entity); 
         
 
         public void Delete(T entity) => _context.Set<T>().Remove(entity);
 
-
+        //tamnamını getiriyor, trackChanges true ise değişiklikleri takip ediyor, false ise takip etmiyor
         public IQueryable<T> FindAll(bool trackChanges) =>
+            // trackChanges true ise değişiklikleri takip ediyor, false ise takip etmiyor
             !trackChanges ?
+            // false ise AsNoTracking() ile değişiklikleri takip etmiyor
             _context.Set<T>().AsNoTracking() :
             _context.Set<T>();
+    
 
-
-
+        
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression,
             bool trackChanges) =>
             !trackChanges ?
-            _context.Set<T>().Where(expression).AsNoTracking() :
+            _context.Set<T>().Where(expression).AsNoTracking() : 
             _context.Set<T>().Where(expression);
-
 
         public void Update(T entity) => _context.Set<T>().Update(entity);
 
